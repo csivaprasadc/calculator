@@ -1,7 +1,7 @@
 
 node {
     stage("Checkout") {
-        git url: 'https://github.com/leszko/calculator.git'
+        git url: 'https://github.com/csivaprasadc/calculator.git'
     }
     stage("Compile") {
         sh "./gradlew compileJava"
