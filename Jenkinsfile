@@ -6,6 +6,14 @@ node {
     stage("Compile") {
         sh "./gradlew compileJava"
     }
+    stage("Static code analysis") {
+        sh "./gradlew checkstyleMain"
+        publishHTML(target:[
+            reportDir: 'build/reports/checkstyle/',
+            reportFiles: 'main.html',
+            reportName: "CheckStyle Report"
+        ])
+    }
     stage("Unit test") {
         sh "./gradlew test"
     }
