@@ -1,15 +1,9 @@
-pipleline {
-    agent any
-    stages {
-        stage('Compile') {
-            steps {
-                sh "./gradlew compileJava"
-            }
-        }
-        stage('Unit Test') {
-            steps {
-                sh "./gradlew test"
-            }
-        }
+
+node {
+    stage("Compile") {
+        sh "./gradlew compileJava"
+    }
+    stage("Unit test") {
+        sh "./gradlew test"
     }
 }
