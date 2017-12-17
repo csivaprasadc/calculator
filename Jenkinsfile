@@ -28,7 +28,7 @@ node {
     }
     stage('Package') {
         sh "./gradlew build"
-    ]
+    }
     stage('Docker build') {
         sh "docker build -t csivaprasadc/calculator ."
     }
