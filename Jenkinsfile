@@ -35,4 +35,16 @@ node {
     stage('Docker push') {
         sh "docker push csivaprasadc/calculator"
     }
+    stage('Deploy to Staging') {
+        sh "docker run -d --rm -p 8765:8080 --name calculator csivaprasadc/calculator"
+    }
+    stage('Acceptance Test') {
+        sleep 60
+        sh "./acceptance_test.sh"
+    }
+    post {
+        always {
+            sh "docker stop calculator"
+        }
+    }
 }
