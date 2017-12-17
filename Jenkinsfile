@@ -42,9 +42,7 @@ node {
         sleep 60
         sh "./acceptance_test.sh"
     }
-    post {
-        always {
-            sh "docker stop calculator"
-        }
+    stage('Final Stage') {
+        sh "docker stop calculator"
     }
 }
