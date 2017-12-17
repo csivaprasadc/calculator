@@ -32,4 +32,7 @@ node {
     stage('Docker build') {
         sh "docker build -t csivaprasadc/calculator ."
     }
+    stage('Docker push') {
+        sh "docker push csivaprasadc/calculator"
+    }
 }
